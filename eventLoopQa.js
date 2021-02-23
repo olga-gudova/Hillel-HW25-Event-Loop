@@ -35,7 +35,7 @@ setTimeout(() => console.info("bar"), 1000);
 console.info("baz");
 
 // 6 - сначала синхронный baz. В job queue попадает промис, выполняется первым как микротаска, помещая в job queue следующий промис then. Выводит foo.
-// После того как job queue очищена, приходит время для task queue.
+// После того как job queue очищена, приходит время для task queue, в котором bar.
 Promise.resolve("foo").then((res) => console.info(res));
 setTimeout(() => console.info("bar"), 0);
 console.info("baz");
